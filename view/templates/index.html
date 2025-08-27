@@ -10,9 +10,12 @@
 
     <ul>
         {% for user in users %}
-        <li>{{user.name}} - {{user.email}}</li>
+        <li>{{ user.name }} - {{ user.email }}</li>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('contact') }}">Página de Cadastro</a>
+
+    <a href="{{ url_for('create_user') }}">Página de Cadastro</a> |
+    <a href="{{ url_for('list_tasks') }}">Página de Tarefas</a> |
+    <a href="{{ url_for('create_task') }}">Cadastrar Tarefa</a>
 </body>
 </html>
