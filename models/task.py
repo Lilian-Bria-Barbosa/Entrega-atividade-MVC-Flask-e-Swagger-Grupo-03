@@ -3,15 +3,27 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 class Task(db.Model):
-    __tablename__ = "tasks"  # CORRIGIDO
+    __tablename__ = "tasks"  
 
-    id = Column(Integer, primary_key=True)
-    title = Column(String, nullable=False)
-    description = Column(String, nullable=False)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    status = Column(String(20), default="Pendente")  # já está correto
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.String, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    status = db.Column(db.String(20), default="Pendente")  # já está correto
 
-    user = relationship("User", back_populates="tasks")
+    user = db.relationship("User", back_populates="tasks")
 
+    def to_dict(self, include_user = False):
+        data = {
+            "id": self.id, 
+            "title": self.title,
+            "description": self.description, 
+            "status": self.status, 
+            "user_id": self.user_id, 
+        }
+        if include_user and self.user:
+            data["user_name"] = self.user.name 
+
+            
     def __repr__(self):
         return f"<Task {self.title} - {self.status}>"
