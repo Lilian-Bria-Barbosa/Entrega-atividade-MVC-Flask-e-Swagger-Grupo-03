@@ -2,7 +2,7 @@
 from flask import Flask
 from models import db
 from controllers.task_controller import TaskController
-from controllers.user_controller import UserController  # se você ainda usa para CRUD de usuários
+from controllers.user_controller import UserController  # CRUD de usuários
 from flasgger import Swagger
 
 def create_app():
@@ -73,7 +73,7 @@ def create_app():
     app.add_url_rule("/tasks/<int:task_id>", view_func=TaskController.update_task, methods=["PUT"], endpoint="update_task")
     app.add_url_rule("/tasks/<int:task_id>", view_func=TaskController.delete_task, methods=["DELETE"], endpoint="delete_task")
 
-    # (Opcional) Rotas de usuários se quiser manter algo exposto como API
+    # Rotas de usuários 
     # app.add_url_rule("/users", view_func=UserController.list_users, methods=["GET"], endpoint="list_users")
     # app.add_url_rule("/users", view_func=UserController.create_user, methods=["POST"], endpoint="create_user")
 

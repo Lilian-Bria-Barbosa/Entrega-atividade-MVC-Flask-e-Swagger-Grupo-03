@@ -9,7 +9,7 @@ class Task(db.Model):
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    status = db.Column(db.String(20), default="Pendente")  # já está correto
+    status = db.Column(db.String(20), default="Pendente") 
 
     user = db.relationship("User", back_populates="tasks")
 
