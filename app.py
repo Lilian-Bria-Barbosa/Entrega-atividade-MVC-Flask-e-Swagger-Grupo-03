@@ -15,7 +15,7 @@ def create_app():
         "swagger": "2.0",
         "info": {
             "title": "Gerenciador de Tarefas API",
-            "description": "API REST para gerenciar tarefas (exercício IMPACTA).",
+            "description": "API REST para gerenciar tarefas",
             "version": "1.0.0"
         },
         "basePath": "/",
@@ -27,8 +27,8 @@ def create_app():
                 "type": "object",
                 "properties": {
                     "id": {"type": "integer", "example": 1},
-                    "title": {"type": "string", "example": "Pagar contas"},
-                    "description": {"type": "string", "example": "Pagar luz e água"},
+                    "title": {"type": "string", "example": "Tarefa"},
+                    "description": {"type": "string", "example": "Primeira tarefa"},
                     "status": {"type": "string", "example": "Pendente"},
                     "user_id": {"type": "integer", "example": 1},
                     "user_name": {"type": "string", "example": "Alice"}
